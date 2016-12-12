@@ -13,12 +13,21 @@ import {
   TouchableHighlight,
   ActivityIndicator, // 和ProgressBar 什么区别?
   DrawerLayoutAndroid,
-  ViewPagerAndroid
+  ViewPagerAndroid,
+  ListView
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
 
 export default class ReactTodo extends Component {
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(["Java", "Kotlin", "JavaScript", "Swift", "HTML", "C", "C++", "Groovy", "Scala"])
+    };
+  }
+
   render() {
 // ---- https://reactnative.cn/docs/0.39/drawerlayoutandroid.html#content
     // var navigationView = (
@@ -44,7 +53,7 @@ export default class ReactTodo extends Component {
     //     <Text>Hello, navigationLayout</Text>
     //   </View>
     // );
-    
+
     return (
       // <View style={styles.container}>
       //   <Text style={styles.welcome}>
@@ -80,18 +89,25 @@ export default class ReactTodo extends Component {
       //   </View>
       // </DrawerLayoutAndroid>
       
-      <View style={{flex: 1, backgroundColor: "gray"}}>
-        <Text style={{height:30, backgroundColor: "blue", textAlign: "center", textAlignVertical: "center", color: "white"}}>ViewPagerAndroid</Text>
-        <ViewPagerAndroid
-          initialPage={0}
-          style={{flex: 1, backgroundColor: "red"}}>
-          <View style={{backgroundColor: "yellow", justifyContent: "center", alignItems: "center", }}>
-            <Text textAlign="center">First page</Text>
-          </View>
-          <View style={{backgroundColor: "green", justifyContent: "center", alignItems: "center", }}>
-            <Text alignItems="center">Second page</Text>
-          </View>
-        </ViewPagerAndroid>
+      // <View style={{flex: 1, backgroundColor: "gray"}}>
+      //   <Text style={{height:50, backgroundColor: "blue", textAlign: "center", textAlignVertical: "center", color: "white"}}>ViewPagerAndroid</Text>
+      //   <ViewPagerAndroid
+      //     initialPage={0}
+      //     style={{flex: 1, backgroundColor: "red"}}>
+      //     <View style={{backgroundColor: "yellow", justifyContent: "center", alignItems: "center", }}>
+      //       <Text textAlign="center">First page</Text>
+      //     </View>
+      //     <View style={{backgroundColor: "green", justifyContent: "center", alignItems: "center", }}>
+      //       <Text alignItems="center">Second page</Text>
+      //     </View>
+      //   </ViewPagerAndroid>
+      // </View>
+
+      <View style={{flex: 1}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text style={{height: 100, color: "red"}}>{rowData}</Text>}>
+        </ListView>
       </View>
     );
   }
