@@ -12,7 +12,8 @@ import {
   View,
   TouchableHighlight,
   ActivityIndicator, // 和ProgressBar 什么区别?
-  DrawerLayoutAndroid
+  DrawerLayoutAndroid,
+  ViewPagerAndroid
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
@@ -38,11 +39,11 @@ export default class ReactTodo extends Component {
     // );
 // -----
     
-    var navigationView = (
-      <View>
-        <Text>Hello, navigationLayout</Text>
-      </View>
-    );
+    // var navigationView = (
+    //   <View>
+    //     <Text>Hello, navigationLayout</Text>
+    //   </View>
+    // );
     
     return (
       // <View style={styles.container}>
@@ -71,13 +72,27 @@ export default class ReactTodo extends Component {
       // <View>
       //   <ActivityIndicator/>
       // </View>
+
+      // <DrawerLayoutAndroid
+      //   renderNavigationView={() => navigationView}>
+      //   <View>
+      //     <Text>Hello World!</Text>
+      //   </View>
+      // </DrawerLayoutAndroid>
       
-      <DrawerLayoutAndroid
-        renderNavigationView={() => navigationView}>
-        <View>
-          <Text>Hello World!</Text>
-        </View>
-      </DrawerLayoutAndroid>
+      <View style={{flex: 1, backgroundColor: "gray"}}>
+        <Text style={{height:30, backgroundColor: "blue", textAlign: "center", textAlignVertical: "center", color: "white"}}>ViewPagerAndroid</Text>
+        <ViewPagerAndroid
+          initialPage={0}
+          style={{flex: 1, backgroundColor: "red"}}>
+          <View style={{backgroundColor: "yellow", justifyContent: "center", alignItems: "center", }}>
+            <Text textAlign="center">First page</Text>
+          </View>
+          <View style={{backgroundColor: "green", justifyContent: "center", alignItems: "center", }}>
+            <Text alignItems="center">Second page</Text>
+          </View>
+        </ViewPagerAndroid>
+      </View>
     );
   }
 
@@ -94,12 +109,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
+  },  
   instructions: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
   },
+
 });
 
 AppRegistry.registerComponent('ReactTodo', () => ReactTodo);
