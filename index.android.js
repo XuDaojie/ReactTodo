@@ -10,13 +10,40 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  ActivityIndicator, // 和ProgressBar 什么区别?
+  DrawerLayoutAndroid
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
 
 export default class ReactTodo extends Component {
   render() {
+// ---- https://reactnative.cn/docs/0.39/drawerlayoutandroid.html#content
+    // var navigationView = (
+    //   <View style={{flex: 1, backgroundColor: '#fff'}}>
+    //     <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+    //   </View>
+    // );
+    // return (
+    //   <DrawerLayoutAndroid
+    //     drawerWidth={300}
+    //     drawerPosition={DrawerLayoutAndroid.positions.Right}
+    //     renderNavigationView={() => navigationView}>
+    //     <View style={{flex: 1, alignItems: 'center'}}>
+    //       <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+    //       <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+    //     </View>
+    //   </DrawerLayoutAndroid>
+    // );
+// -----
+    
+    var navigationView = (
+      <View>
+        <Text>Hello, navigationLayout</Text>
+      </View>
+    );
+    
     return (
       // <View style={styles.container}>
       //   <Text style={styles.welcome}>
@@ -31,15 +58,26 @@ export default class ReactTodo extends Component {
       //   </Text>
       // </View>
 
-      <View>
-        <TouchableHighlight
-          onPress={function onPressIn() {
-            NativeModules.SimpleToastAndroid.show('SimpleToastAndroid', NativeModules.SimpleToastAndroid.SHORT);
-            // NativeModules.ToastAndroid.show("ToastAndroid", NativeModules.ToastAndroid.SHORT);
-          }}>
-          <Text style={styles.welcome}>Hello</Text>
-        </TouchableHighlight>
-      </View>
+      // <View>
+      //   <TouchableHighlight
+      //     onPress={function onPressIn() {
+      //       NativeModules.SimpleToastAndroid.show('SimpleToastAndroid', NativeModules.SimpleToastAndroid.SHORT);
+      //       // NativeModules.ToastAndroid.show("ToastAndroid", NativeModules.ToastAndroid.SHORT);
+      //     }}>
+      //     <Text style={styles.welcome}>Hello</Text>
+      //   </TouchableHighlight>
+      // </View>
+
+      // <View>
+      //   <ActivityIndicator/>
+      // </View>
+      
+      <DrawerLayoutAndroid
+        renderNavigationView={() => navigationView}>
+        <View>
+          <Text>Hello World!</Text>
+        </View>
+      </DrawerLayoutAndroid>
     );
   }
 
