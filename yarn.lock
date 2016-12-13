@@ -3811,6 +3811,12 @@ react-native-action-button@^2.0.16:
   version "2.0.16"
   resolved "https://registry.yarnpkg.com/react-native-action-button/-/react-native-action-button-2.0.16.tgz#507991a5e1041b19ede9bb2c14f55f59bc05f51a"
 
+react-native-scrollable-tab-view@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.7.0.tgz#c8fe713530766f8fe9364155a5445a5964a99f77"
+  dependencies:
+    react-timer-mixin "^0.13.3"
+
 react-native@^0.38.0:
   version "0.38.1"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.38.1.tgz#7e4b2038a7caf0608c8b7efdde662286d8433df3"
@@ -3900,7 +3906,7 @@ react-test-renderer@15.4.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.4.1.tgz#e38cd7057868d4a655d3764689735b4b97260706"
 
-react-timer-mixin@^0.13.2:
+react-timer-mixin@^0.13.2, react-timer-mixin@^0.13.3:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/react-timer-mixin/-/react-timer-mixin-0.13.3.tgz#0da8b9f807ec07dc3e854d082c737c65605b3d22"
 

@@ -19,6 +19,7 @@ import {
 
 import {NativeModules} from 'react-native';
 import ActionButton from 'react-native-action-button';
+import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 
 export default class ReactTodo extends Component {
   constructor(props) {
@@ -104,15 +105,23 @@ export default class ReactTodo extends Component {
       //   </ViewPagerAndroid>
       // </View>
 
-      <View style={{flex: 1}}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text style={{height: 100, color: "red"}}>{rowData}</Text>}>
-        </ListView>
-        <ActionButton
-          buttonColor="rgba(231,76,60,1)"
-          onPress={() => { console.log("hi")}}/>
-      </View>
+      // <View style={{flex: 1}}>
+      //   <ListView
+      //     dataSource={this.state.dataSource}
+      //     renderRow={(rowData) => <Text style={{height: 100, color: "red"}}>{rowData}</Text>}>
+      //   </ListView>
+      //   <ActionButton
+      //     buttonColor="rgba(231,76,60,1)"
+      //     onPress={() => { console.log("hi")}}/>
+      // </View>
+
+      <ScrollableTabView
+        style={{marginTop: 20, }}
+        renderTabBar={() => <DefaultTabBar />}>
+        <Text tabLabel='Tab #1'>My</Text>
+        <Text tabLabel='Tab #2'>favorite</Text>
+        <Text tabLabel='Tab #3'>project</Text>
+      </ScrollableTabView>
     );
   }
 

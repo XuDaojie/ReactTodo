@@ -12,5 +12,7 @@
 4. `DrawerLayoutAndroid`的`renderNavigationView`为必选项
 
 ## Thanks
-[react-native-action-button](https://github.com/mastermoo/react-native-action-button)
-[react-native-android-tablayout](https://github.com/AlbertBrand/react-native-android-tablayout)
+[react-native-action-button](https://github.com/mastermoo/react-native-action-button)<br>
+FloatActionButton<br>
+[react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)<br>
+ViewPager + TabLayout
