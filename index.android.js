@@ -20,6 +20,7 @@ import {
 import {NativeModules} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
+import TabView from "./js/TabView.js"
 
 export default class ReactTodo extends Component {
   constructor(props) {
@@ -115,15 +116,18 @@ export default class ReactTodo extends Component {
       //     onPress={() => { console.log("hi")}}/>
       // </View>
 
-      <ScrollableTabView
-        style={{marginTop: 20, }}
-        renderTabBar={() => <DefaultTabBar />}>
-        <Text tabLabel='Tab #1'>My</Text>
-        <Text tabLabel='Tab #2'>favorite</Text>
-        <Text tabLabel='Tab #3'>project</Text>
-      </ScrollableTabView>
+      // <ScrollableTabView
+      //   style={{marginTop: 20, }}
+      //   renderTabBar={() => <DefaultTabBar />}>
+      //   <Text tabLabel='Tab #1'>My</Text>
+      //   <Text tabLabel='Tab #2'>favorite</Text>
+      //   <Text tabLabel='Tab #3'>project</Text>
+      // </ScrollableTabView>
+
+      <TabView>
+      </TabView>
     );
-  }
+  } 
 
 }
 

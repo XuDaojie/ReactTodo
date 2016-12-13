@@ -3811,6 +3811,10 @@ react-native-action-button@^2.0.16:
   version "2.0.16"
   resolved "https://registry.yarnpkg.com/react-native-action-button/-/react-native-action-button-2.0.16.tgz#507991a5e1041b19ede9bb2c14f55f59bc05f51a"
 
+react-native-check-box@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-check-box/-/react-native-check-box-1.0.4.tgz#228507af6df59fa07b334dfd569aeb709e9ca1e6"
+
 react-native-scrollable-tab-view@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.7.0.tgz#c8fe713530766f8fe9364155a5445a5964a99f77"

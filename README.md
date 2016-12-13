@@ -10,9 +10,18 @@
 2. 当**Java**代码修改后，使用`reload`是无法完成热更新的
 3. **TODO** runOnUiThread(Runnable runnable) 在主线程运行，但是发现`Toast`不包裹在里也能运行？？？
 4. `DrawerLayoutAndroid`的`renderNavigationView`为必选项
+5. 安装第三方库
+    
+    ``` bash
+    # 通常第三方库都会在**README**里写好了**npm**的安装方式
+    $ npm i react-native-action-button --save
+    # **Yarn**安装方式
+    $ yarn add react-native-action-button
+    ```
 
 ## Thanks
 [react-native-action-button](https://github.com/mastermoo/react-native-action-button)<br>
-FloatActionButton<br>
+
 [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)<br>
-ViewPager + TabLayout
+
+[react-native-check-box](https://github.com/crazycodeboy/react-native-check-box)<br>
