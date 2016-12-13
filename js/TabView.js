@@ -25,9 +25,9 @@ export default class TabView extends Component {
   }
 
   render() {
-    var listItem = (
+    var listItem = ((rowData) =>
       <TabListItem 
-        name="- Name"
+        name={rowData}
         dateTime="- DataTime" 
         description="- Description"/>
     );
@@ -35,7 +35,7 @@ export default class TabView extends Component {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => listItem}/>
+        renderRow={listItem}/>
     );
   }
 }

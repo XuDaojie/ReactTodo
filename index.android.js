@@ -12,9 +12,10 @@ import {
   View,
   TouchableHighlight,
   ActivityIndicator, // 和ProgressBar 什么区别?
+  ListView,
   DrawerLayoutAndroid,
   ViewPagerAndroid,
-  ListView
+  ToolbarAndroid, 
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
@@ -56,6 +57,11 @@ export default class ReactTodo extends Component {
     //     <Text>Hello, navigationLayout</Text>
     //   </View>
     // );
+
+    var toolbarActions = [
+      {title: "Hide completed", show: "never"},
+      {title: "Sort by", show: "never"},
+    ];
 
     return (
       // <View style={styles.container}>
@@ -124,10 +130,22 @@ export default class ReactTodo extends Component {
       //   <Text tabLabel='Tab #3'>project</Text>
       // </ScrollableTabView>
 
-      <TabView>
-      </TabView>
+      // <TabView>
+      // </TabView>
+
+      <View>
+        <ToolbarAndroid
+          style={{height: 56, backgroundColor: "#2196F3"}}
+          title="ToDo"
+          titleColor="white"
+          actions={toolbarActions}
+          overflowIcon={require("./img/icon/ic_dots_vertical_white.png")}
+          navIcon={require("./img/icon/ic_menu_white.png")}/>
+
+      </View>
+      
     );
-  } 
+  }
 
 }
 
