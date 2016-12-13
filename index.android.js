@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
+import ActionButton from 'react-native-action-button';
 
 export default class ReactTodo extends Component {
   constructor(props) {
@@ -108,6 +109,9 @@ export default class ReactTodo extends Component {
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <Text style={{height: 100, color: "red"}}>{rowData}</Text>}>
         </ListView>
+        <ActionButton
+          buttonColor="rgba(231,76,60,1)"
+          onPress={() => { console.log("hi")}}/>
       </View>
     );
   }
