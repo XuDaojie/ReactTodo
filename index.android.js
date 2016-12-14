@@ -13,14 +13,15 @@ import {
   TouchableHighlight,
   ActivityIndicator, // 和ProgressBar 什么区别?
   ListView,
+  Image,
   DrawerLayoutAndroid,
   ViewPagerAndroid,
-  ToolbarAndroid, 
+  ToolbarAndroid,
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
 import ActionButton from 'react-native-action-button';
-import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
+import ScrollableTabView, {DefaultTabBar, ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import TabView from "./js/TabView.js"
 
 export default class ReactTodo extends Component {
@@ -63,6 +64,27 @@ export default class ReactTodo extends Component {
       {title: "Sort by", show: "never"},
     ];
 
+// <Image
+//             source={require("./img/bg_img.jpg")}/>
+    var navigationView = (
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'stretch'
+      }}>
+        <View style={{height: 160, backgroundColor: '#2196F3'}}>
+          <View style={styles.avatar}/>
+          <Text style={styles.account}>React Native</Text>
+        </View>
+        <View style={styles.divider}/>
+        <Text style={{marginLeft: 10, marginBottom: 10, fontSize: 12}}>任务列表</Text>
+        <Text style={styles.taskItem}>To Do</Text>
+        <Text style={styles.taskItem}>To Do</Text>
+        <Text style={styles.taskItem}>To Do</Text>
+      </View>
+    );
+    
     return (
       // <View style={styles.container}>
       //   <Text style={styles.welcome}>
@@ -133,16 +155,41 @@ export default class ReactTodo extends Component {
       // <TabView>
       // </TabView>
 
-      <View>
+      <DrawerLayoutAndroid
+        ref={ (drawer) => this.drawer = drawer }
+        renderNavigationView={ () => navigationView }
+        statusBarBackgroundColor="#1976D2"
+        drawerWidth={300}>
         <ToolbarAndroid
-          style={{height: 56, backgroundColor: "#2196F3"}}
-          title="ToDo"
-          titleColor="white"
-          actions={toolbarActions}
-          overflowIcon={require("./img/icon/ic_dots_vertical_white.png")}
-          navIcon={require("./img/icon/ic_menu_white.png")}/>
+            style={{height: 56, backgroundColor: "#2196F3"}}
+            title="ToDo"
+            titleColor="white"
+            actions={toolbarActions}
+            overflowIcon={require("./img/icon/ic_dots_vertical_white.png")}
+            navIcon={require("./img/icon/ic_menu_white.png")}
+            onIconClicked={ () => this.drawer.openDrawer() }/>
+        <ScrollableTabView
+          renderTabBar={() => <DefaultTabBar backgroundColor="#2196F3" style={{height: 30}}/>}
+          tabBarActiveTextColor="white"
+          tabBarInactiveTextColor="#BBDEFB"
+          tabBarUnderlineStyle={{height: 2, backgroundColor: "#FF4081", borderColor: "transparent"}}
+          tabBarTextStyle={{fontSize: 14}}>
+          <TabView tabLabel="TODO1"/>
+          <TabView tabLabel="TODO2"/>
+          <TabView tabLabel="TODO3"/>
+        </ScrollableTabView>
+      </DrawerLayoutAndroid>
 
-      </View>
+      // <View style={{
+      //   flex: 1,
+      //   flexDirection: 'column',
+      //   justifyContent: 'flex-start',
+      //   alignItems: 'stretch'
+      // }}>
+      //   <View style={{height: 50, backgroundColor: 'powderblue'}} />
+      //   <View style={{height: 50, backgroundColor: 'skyblue'}} />
+      //   <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+      // </View>
       
     );
   }
@@ -166,7 +213,35 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-
+  divider: {
+    height: 1,
+    backgroundColor: 'lightgray',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  taskItem: {
+    marginLeft: 10, 
+    fontSize: 14,
+    color: "black",
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  avatar: {
+    height: 60, 
+    width: 60, 
+    marginTop: 40,
+    marginLeft: 10,
+    backgroundColor: '#1976D2', 
+    borderWidth: 1, 
+    borderRadius: 30,
+    borderColor: "white",
+  },
+  account: {
+    marginTop: 30,
+    marginLeft: 10,
+    color: "white",
+    fontSize: 14
+  },
 });
 
 AppRegistry.registerComponent('ReactTodo', () => ReactTodo);

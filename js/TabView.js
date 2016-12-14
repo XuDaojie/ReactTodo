@@ -34,6 +34,7 @@ export default class TabView extends Component {
 
     return (
       <ListView
+        style={{marginTop: 4}}
         dataSource={this.state.dataSource}
         renderRow={listItem}/>
     );
